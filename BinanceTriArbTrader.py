@@ -133,7 +133,7 @@ def initialize_arb():
         list_of_symbols8 = ['BNBBTC', 'APPCBNB', 'APPCBTC']
         list_of_symbols9 = ['BNBBTC', 'ARDRBNB', 'ARDRBTC']
         list_of_symbols10 = ['BNBBTC', 'BATBNB', 'BATBTC']
-        list_of_symbols11 = ['BNBBTC', 'BCCBNB', 'BCCBTC']
+        # list_of_symbols11 = ['BNBBTC', 'BCCBNB', 'BCCBTC']
         list_of_symbols12 = ['BNBBTC', 'BCPTBNB', 'BCPTBTC']
         list_of_symbols13 = ['BNBBTC', 'BLZBNB', 'BLZBTC']
         list_of_symbols14 = ['BNBBTC', 'BRDBNB', 'BRDBTC']
@@ -164,7 +164,7 @@ def initialize_arb():
         list_of_symbols39 = ['BNBBTC', 'NXSBNB', 'NXSBTC']
         list_of_symbols40 = ['BNBBTC', 'ONTBNB', 'ONTBTC']
         list_of_symbols41 = ['BNBBTC', 'OSTBNB', 'OSTBTC']
-        list_of_symbols42 = ['BNBBTC', 'PAXBNB', 'PAXBTC']
+        # list_of_symbols42 = ['BNBBTC', 'PAXBNB', 'PAXBTC']
         list_of_symbols43 = ['BNBBTC', 'PHXBNB', 'PHXBTC']
         list_of_symbols44 = ['BNBBTC', 'PIVXBNB', 'PIVXBTC']
         list_of_symbols45 = ['BNBBTC', 'POABNB', 'POABTC']
@@ -206,7 +206,7 @@ def initialize_arb():
         list_of_symbols81 = ['BNBETH', 'APPCBNB', 'APPCETH']
         list_of_symbols82 = ['BNBETH', 'ARDRBNB', 'ARDRETH']
         list_of_symbols83 = ['BNBETH', 'BATBNB', 'BATETH']
-        list_of_symbols84 = ['BNBETH', 'BCCBNB', 'BCCETH']
+        # list_of_symbols84 = ['BNBETH', 'BCCBNB', 'BCCETH']
         list_of_symbols85 = ['BNBETH', 'BCPTBNB', 'BCPTETH']
         list_of_symbols86 = ['BNBETH', 'BLZBNB', 'BLZETH']
         list_of_symbols87 = ['BNBETH', 'BRDBNB', 'BRDETH']
@@ -237,7 +237,7 @@ def initialize_arb():
         list_of_symbols112 = ['BNBETH', 'NXSBNB', 'NXSETH']
         list_of_symbols113 = ['BNBETH', 'ONTBNB', 'ONTETH']
         list_of_symbols114 = ['BNBETH', 'OSTBNB', 'OSTETH']
-        list_of_symbols115 = ['BNBETH', 'PAXBNB', 'PAXETH']
+        # list_of_symbols115 = ['BNBETH', 'PAXBNB', 'PAXETH']
         list_of_symbols116 = ['BNBETH', 'PHXBNB', 'PHXETH']
         list_of_symbols117 = ['BNBETH', 'PIVXBNB', 'PIVXETH']
         list_of_symbols118 = ['BNBETH', 'POABNB', 'POAETH']
@@ -282,7 +282,7 @@ def initialize_arb():
         list_of_symbols157 = ['ETHBTC', 'ARNETH', 'ARNBTC']
         list_of_symbols158 = ['ETHBTC', 'ASTETH', 'ASTBTC']
         list_of_symbols159 = ['ETHBTC', 'BATETH', 'BATBTC']
-        list_of_symbols160 = ['ETHBTC', 'BCCETH', 'BCCBTC']
+        # list_of_symbols160 = ['ETHBTC', 'BCCETH', 'BCCBTC']
         list_of_symbols161 = ['ETHBTC', 'BCDETH', 'BCDBTC']
         list_of_symbols162 = ['ETHBTC', 'BCPTETH', 'BCPTBTC']
         list_of_symbols163 = ['ETHBTC', 'BLZETH', 'BLZBTC']
@@ -355,7 +355,7 @@ def initialize_arb():
         list_of_symbols230 = ['ETHBTC', 'OMGETH', 'OMGBTC']
         list_of_symbols231 = ['ETHBTC', 'ONTETH', 'ONTBTC']
         list_of_symbols232 = ['ETHBTC', 'OSTETH', 'OSTBTC']
-        list_of_symbols233 = ['ETHBTC', 'PAXETH', 'PAXBTC']
+        # list_of_symbols233 = ['ETHBTC', 'PAXETH', 'PAXBTC']
         list_of_symbols234 = ['ETHBTC', 'PHXETH', 'PHXBTC']
         list_of_symbols235 = ['ETHBTC', 'PIVXETH', 'PIVXBTC']
         list_of_symbols236 = ['ETHBTC', 'POAETH', 'POABTC']
@@ -409,55 +409,99 @@ def initialize_arb():
         list_of_symbols284 = ['ETHBTC', 'ZENETH', 'ZENBTC']
         list_of_symbols285 = ['ETHBTC', 'ZILETH', 'ZILBTC']
         list_of_symbols286 = ['ETHBTC', 'ZRXETH', 'ZRXBTC']
+        ############
+        list_of_symbols287 = ['BTCUSDT', 'BCHSVBTC', 'BCHSVUSDT']
+        list_of_symbols288 = ['BTCUSDT', 'BCHABCBTC', 'BCHABCUSDT']
 
-        list_of_arb_sym = [list_of_symbols2,list_of_symbols3,list_of_symbols4,list_of_symbols5,list_of_symbols6
-            ,list_of_symbols7,list_of_symbols8,list_of_symbols9,list_of_symbols10,list_of_symbols11,list_of_symbols12
-            ,list_of_symbols13,list_of_symbols14,list_of_symbols15,list_of_symbols16,list_of_symbols17,list_of_symbols18
-            ,list_of_symbols19,list_of_symbols20,list_of_symbols21,list_of_symbols22,list_of_symbols23,list_of_symbols24
-            ,list_of_symbols25,list_of_symbols26,list_of_symbols27,list_of_symbols28,list_of_symbols29,list_of_symbols30
-            ,list_of_symbols31,list_of_symbols32,list_of_symbols33,list_of_symbols34,list_of_symbols35,list_of_symbols36
-            ,list_of_symbols37,list_of_symbols38,list_of_symbols39,list_of_symbols40,list_of_symbols41,list_of_symbols42
-            ,list_of_symbols43,list_of_symbols44,list_of_symbols45,list_of_symbols46,list_of_symbols47,list_of_symbols48
-            ,list_of_symbols49,list_of_symbols50,list_of_symbols51,list_of_symbols52,list_of_symbols53,list_of_symbols54
-            ,list_of_symbols55,list_of_symbols56,list_of_symbols57,list_of_symbols58,list_of_symbols59,list_of_symbols60
-            ,list_of_symbols61,list_of_symbols62,list_of_symbols63,list_of_symbols64,list_of_symbols65,list_of_symbols66
-            ,list_of_symbols67,list_of_symbols68,list_of_symbols69,list_of_symbols70,list_of_symbols71,list_of_symbols72
-            ,list_of_symbols73,list_of_symbols74,list_of_symbols75,list_of_symbols76,list_of_symbols77,list_of_symbols78
-            ,list_of_symbols79,list_of_symbols80,list_of_symbols81,list_of_symbols82,list_of_symbols83,list_of_symbols84
-            ,list_of_symbols85,list_of_symbols86,list_of_symbols87,list_of_symbols88,list_of_symbols89,list_of_symbols90
-            ,list_of_symbols91,list_of_symbols92,list_of_symbols93,list_of_symbols94,list_of_symbols95,list_of_symbols96
-            ,list_of_symbols97,list_of_symbols98,list_of_symbols99,list_of_symbols100,list_of_symbols101,list_of_symbols102
-            ,list_of_symbols103,list_of_symbols104,list_of_symbols105,list_of_symbols106,list_of_symbols107,list_of_symbols108
-            ,list_of_symbols109,list_of_symbols110,list_of_symbols111,list_of_symbols112,list_of_symbols113,list_of_symbols114
-            ,list_of_symbols115,list_of_symbols116,list_of_symbols117,list_of_symbols118,list_of_symbols119,list_of_symbols120
-            ,list_of_symbols121,list_of_symbols122,list_of_symbols123,list_of_symbols124,list_of_symbols125,list_of_symbols126
-            ,list_of_symbols127,list_of_symbols128,list_of_symbols129,list_of_symbols130,list_of_symbols131,list_of_symbols132
-            ,list_of_symbols133,list_of_symbols134,list_of_symbols135,list_of_symbols136,list_of_symbols137,list_of_symbols138
-            ,list_of_symbols139,list_of_symbols140,list_of_symbols141,list_of_symbols142,list_of_symbols143,list_of_symbols144
-            ,list_of_symbols145,list_of_symbols146,list_of_symbols147,list_of_symbols148,list_of_symbols149,list_of_symbols150
-            ,list_of_symbols151,list_of_symbols152,list_of_symbols153,list_of_symbols154,list_of_symbols155,list_of_symbols156
-            ,list_of_symbols157,list_of_symbols158,list_of_symbols159,list_of_symbols160,list_of_symbols161,list_of_symbols162
-            ,list_of_symbols163,list_of_symbols164,list_of_symbols165,list_of_symbols166,list_of_symbols167,list_of_symbols168
-            ,list_of_symbols169,list_of_symbols170,list_of_symbols171,list_of_symbols172,list_of_symbols173,list_of_symbols174
-            ,list_of_symbols175,list_of_symbols176,list_of_symbols177,list_of_symbols178,list_of_symbols179,list_of_symbols180
-            ,list_of_symbols181,list_of_symbols182,list_of_symbols183,list_of_symbols184,list_of_symbols185,list_of_symbols186
-            ,list_of_symbols187,list_of_symbols188,list_of_symbols189,list_of_symbols190,list_of_symbols191,list_of_symbols192
-            ,list_of_symbols193,list_of_symbols194,list_of_symbols195,list_of_symbols196,list_of_symbols197,list_of_symbols198
-            ,list_of_symbols199,list_of_symbols200,list_of_symbols201,list_of_symbols202,list_of_symbols203,list_of_symbols204
-            ,list_of_symbols205,list_of_symbols206,list_of_symbols207,list_of_symbols208,list_of_symbols209,list_of_symbols210
-            ,list_of_symbols211,list_of_symbols212,list_of_symbols213,list_of_symbols214,list_of_symbols215,list_of_symbols216
-            ,list_of_symbols217,list_of_symbols218,list_of_symbols219,list_of_symbols220,list_of_symbols221,list_of_symbols222
-            ,list_of_symbols223,list_of_symbols224,list_of_symbols225,list_of_symbols226,list_of_symbols227,list_of_symbols228
-            ,list_of_symbols229,list_of_symbols230,list_of_symbols231,list_of_symbols232,list_of_symbols233,list_of_symbols234
-            ,list_of_symbols235,list_of_symbols236,list_of_symbols237,list_of_symbols238,list_of_symbols239,list_of_symbols240
-            ,list_of_symbols241,list_of_symbols242,list_of_symbols243,list_of_symbols244,list_of_symbols245,list_of_symbols246
-            ,list_of_symbols247,list_of_symbols248,list_of_symbols249,list_of_symbols250,list_of_symbols251,list_of_symbols252
-            ,list_of_symbols253,list_of_symbols254,list_of_symbols255,list_of_symbols256,list_of_symbols257,list_of_symbols258
-            ,list_of_symbols259,list_of_symbols260,list_of_symbols261,list_of_symbols262,list_of_symbols263,list_of_symbols264
-            ,list_of_symbols265,list_of_symbols266,list_of_symbols267,list_of_symbols268,list_of_symbols269,list_of_symbols270
-            ,list_of_symbols271,list_of_symbols272,list_of_symbols273,list_of_symbols274,list_of_symbols275,list_of_symbols276
-            ,list_of_symbols277,list_of_symbols278,list_of_symbols279,list_of_symbols280,list_of_symbols281,list_of_symbols282
-            ,list_of_symbols283,list_of_symbols284,list_of_symbols285,list_of_symbols286]
+        list_of_arb_sym = [list_of_symbols2, list_of_symbols3, list_of_symbols4, list_of_symbols5, list_of_symbols6
+            , list_of_symbols7, list_of_symbols8, list_of_symbols9, list_of_symbols10, list_of_symbols12
+            , list_of_symbols13, list_of_symbols14, list_of_symbols15, list_of_symbols16, list_of_symbols17,
+                           list_of_symbols18
+            , list_of_symbols19, list_of_symbols20, list_of_symbols21, list_of_symbols22, list_of_symbols23,
+                           list_of_symbols24
+            , list_of_symbols25, list_of_symbols26, list_of_symbols27, list_of_symbols28, list_of_symbols29,
+                           list_of_symbols30
+            , list_of_symbols31, list_of_symbols32, list_of_symbols33, list_of_symbols34, list_of_symbols35,
+                           list_of_symbols36
+            , list_of_symbols37, list_of_symbols38, list_of_symbols39, list_of_symbols40, list_of_symbols41
+            , list_of_symbols43, list_of_symbols44, list_of_symbols45, list_of_symbols46, list_of_symbols47,
+                           list_of_symbols48
+            , list_of_symbols49, list_of_symbols50, list_of_symbols51, list_of_symbols52, list_of_symbols53,
+                           list_of_symbols54
+            , list_of_symbols55, list_of_symbols56, list_of_symbols57, list_of_symbols58, list_of_symbols59,
+                           list_of_symbols60
+            , list_of_symbols61, list_of_symbols62, list_of_symbols63, list_of_symbols64, list_of_symbols65,
+                           list_of_symbols66
+            , list_of_symbols67, list_of_symbols68, list_of_symbols69, list_of_symbols70, list_of_symbols71,
+                           list_of_symbols72
+            , list_of_symbols73, list_of_symbols74, list_of_symbols75, list_of_symbols76, list_of_symbols77,
+                           list_of_symbols78
+            , list_of_symbols79, list_of_symbols80, list_of_symbols81, list_of_symbols82, list_of_symbols83,
+                           list_of_symbols85
+            , list_of_symbols86, list_of_symbols87, list_of_symbols88, list_of_symbols89, list_of_symbols90
+            , list_of_symbols91, list_of_symbols92, list_of_symbols93, list_of_symbols94, list_of_symbols95,
+                           list_of_symbols96
+            , list_of_symbols97, list_of_symbols98, list_of_symbols99, list_of_symbols100, list_of_symbols101,
+                           list_of_symbols102
+            , list_of_symbols103, list_of_symbols104, list_of_symbols105, list_of_symbols106, list_of_symbols107,
+                           list_of_symbols108
+            , list_of_symbols109, list_of_symbols110, list_of_symbols111, list_of_symbols112, list_of_symbols113,
+                           list_of_symbols114
+            , list_of_symbols116, list_of_symbols117, list_of_symbols118, list_of_symbols119, list_of_symbols120
+            , list_of_symbols121, list_of_symbols122, list_of_symbols123, list_of_symbols124, list_of_symbols125,
+                           list_of_symbols126
+            , list_of_symbols127, list_of_symbols128, list_of_symbols129, list_of_symbols130, list_of_symbols131,
+                           list_of_symbols132
+            , list_of_symbols133, list_of_symbols134, list_of_symbols135, list_of_symbols136, list_of_symbols137,
+                           list_of_symbols138
+            , list_of_symbols139, list_of_symbols140, list_of_symbols141, list_of_symbols142, list_of_symbols143,
+                           list_of_symbols144
+            , list_of_symbols145, list_of_symbols146, list_of_symbols147, list_of_symbols148, list_of_symbols149,
+                           list_of_symbols150
+            , list_of_symbols151, list_of_symbols152, list_of_symbols153, list_of_symbols154, list_of_symbols155,
+                           list_of_symbols156
+            , list_of_symbols157, list_of_symbols158, list_of_symbols159, list_of_symbols161, list_of_symbols162
+            , list_of_symbols163, list_of_symbols164, list_of_symbols165, list_of_symbols166, list_of_symbols167,
+                           list_of_symbols168
+            , list_of_symbols169, list_of_symbols170, list_of_symbols171, list_of_symbols172, list_of_symbols173,
+                           list_of_symbols174
+            , list_of_symbols175, list_of_symbols176, list_of_symbols177, list_of_symbols178, list_of_symbols179,
+                           list_of_symbols180
+            , list_of_symbols181, list_of_symbols182, list_of_symbols183, list_of_symbols184, list_of_symbols185,
+                           list_of_symbols186
+            , list_of_symbols187, list_of_symbols188, list_of_symbols189, list_of_symbols190, list_of_symbols191,
+                           list_of_symbols192
+            , list_of_symbols193, list_of_symbols194, list_of_symbols195, list_of_symbols196, list_of_symbols197,
+                           list_of_symbols198
+            , list_of_symbols199, list_of_symbols200, list_of_symbols201, list_of_symbols202, list_of_symbols203,
+                           list_of_symbols204
+            , list_of_symbols205, list_of_symbols206, list_of_symbols207, list_of_symbols208, list_of_symbols209,
+                           list_of_symbols210
+            , list_of_symbols211, list_of_symbols212, list_of_symbols213, list_of_symbols214, list_of_symbols215,
+                           list_of_symbols216
+            , list_of_symbols217, list_of_symbols218, list_of_symbols219, list_of_symbols220, list_of_symbols221,
+                           list_of_symbols222
+            , list_of_symbols223, list_of_symbols224, list_of_symbols225, list_of_symbols226, list_of_symbols227,
+                           list_of_symbols228
+            , list_of_symbols229, list_of_symbols230, list_of_symbols231, list_of_symbols232, list_of_symbols234
+            , list_of_symbols235, list_of_symbols236, list_of_symbols237, list_of_symbols238, list_of_symbols239,
+                           list_of_symbols240
+            , list_of_symbols241, list_of_symbols242, list_of_symbols243, list_of_symbols244, list_of_symbols245,
+                           list_of_symbols246
+            , list_of_symbols247, list_of_symbols248, list_of_symbols249, list_of_symbols250, list_of_symbols251,
+                           list_of_symbols252
+            , list_of_symbols253, list_of_symbols254, list_of_symbols255, list_of_symbols256, list_of_symbols257,
+                           list_of_symbols258
+            , list_of_symbols259, list_of_symbols260, list_of_symbols261, list_of_symbols262, list_of_symbols263,
+                           list_of_symbols264
+            , list_of_symbols265, list_of_symbols266, list_of_symbols267, list_of_symbols268, list_of_symbols269,
+                           list_of_symbols270
+            , list_of_symbols271, list_of_symbols272, list_of_symbols273, list_of_symbols274, list_of_symbols275,
+                           list_of_symbols276
+            , list_of_symbols277, list_of_symbols278, list_of_symbols279, list_of_symbols280, list_of_symbols281,
+                           list_of_symbols282
+            , list_of_symbols283, list_of_symbols284, list_of_symbols285, list_of_symbols286, list_of_symbols287,
+                           list_of_symbols288]
 
         #Create List of all balance amounts for each coin:
         msg1 = "LOADING BALANCES FROM BINANCE"
