@@ -27,7 +27,7 @@ BTC: 1BYrAED4pi5DMKu2qZPv8pwe6rEeuxoCiD
 NOTE: All Subsequent Version of Program must contain this message, unmodified, in it's entirety
 Copyright (c) 2018 by Joaquin Roibal
 """
-
+from __future__ import print_function
 from binance.client import Client
 from binance.enums import *
 import time
@@ -41,6 +41,13 @@ import pprint
 #import save_historical_data_Roibal
 import math
 from BinanceKeys import BinanceKey1
+
+# google sheet
+
+from googleapiclient.discovery import build
+from httplib2 import Http
+from oauth2client import file, client, tools
+
 #import tweepy
 #from samplekeys import keys, keys2, keys3, rkey
 ""
@@ -671,6 +678,7 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
             #time.sleep(3)
         #Determine Rates for our 3 currency pairs - order book
         list_exch_rate_list = []
+        excel = []
         if 1:
         #Create Visualization of Currency Exchange Rate Value - Over Time
             #Determine Cycle number (when data is taken) and time when taken
@@ -683,6 +691,7 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                 data_log_to_file(data_collect_message1)
                 for sym in list_of_sym:
                     currency_pair = "Currency Pair: "+str(sym)+" "
+
                     if sym in list_of_sym:
                         #depth = client.get_(sym)
                         #print(depth)
@@ -695,10 +704,12 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                             #exch_rate_list.append(depth['bids'][0][0]) #converted to Binance
                             depth = client.get_order_book(symbol=sym)
                             if i ==0:
-                                price1 = float(depth['bids'][0][0])
+                                price1 = float(depth['asks'][0][0])
+                                volume1 = float(depth['asks'][0][1])
                                 exch_rate_list.append(price1)
                             if i ==2:
                                 price3 = float(depth['bids'][0][0])
+                                volume3 = float(depth['bids'][0][1])
                                 exch_rate_list.append(price3)
                             Exch_rate1 = currency_pair+ "Exchange Rate: {}".format(depth['bids'][0][0]) +' '
                             print(Exch_rate1)
@@ -707,6 +718,7 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                             #exch_rate_list.append(depth['asks'][0][0])
                             depth = client.get_order_book(symbol=sym)
                             price2 = float(depth['asks'][0][0])
+                            volume2 = float(depth['asks'][0][1])
                             exch_rate_list.append(price2)
                             Exch_rate2 = currency_pair+"Exchange Rate: {}".format(depth['asks'][0][0])+' '
                             print(Exch_rate2)
@@ -716,7 +728,12 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                         exch_rate_list.append(0)
 
                 #exch_rate_list.append(((rateB[-1]-rateA[-1])/rateA[-1])*100)  #Expected Profit
-                exch_rate_list.append(datetime.now())      #changed to Human Readable time
+                date_time_now = datetime.now()
+                exch_rate_list.append(date_time_now)      #changed to Human Readable time
+                excel.append(date_time_now.strftime("%Y-%m-%d %H:%M:%S"))
+                excel.append(str(list_of_sym[0]))
+                excel.append(str(list_of_sym[1]))
+                excel.append(str(list_of_sym[2]))
                 #time.sleep(10)
                 #Compare to determine if Arbitrage opp exists
                 print(exch_rate_list)
@@ -735,6 +752,19 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                     arb_1_msg = "Arbitrage Possibility - "
                     #Calculate Profit, append to List
                     arb_profit = ((rate2-rate1)/rate2)*100
+
+                    if arb_profit > 0:
+                        print("\nWrite to excel")
+                        excel.append(str(price1))
+                        excel.append(str(volume1))
+                        excel.append(str(price2))
+                        excel.append(str(volume2))
+                        excel.append(str(price3))
+                        excel.append(str(volume3))
+                        excel.append(str(rate1))  # BUY
+                        excel.append(str(rate2))  # SELL
+                        excel.append(str(arb_profit))
+                        writeGoogleSheet(excel)
 
                     arb_profit_fees = fee_percentage
                     arb_profit_adjust = arb_profit - arb_profit_fees
@@ -873,19 +903,33 @@ def tri_arb_paper(portfolio1, sym_list, list_exch_rates, fees='No', fee=0.0005):
     elif sym_list[0][-3:]=='CVC':
         portf_pos = 6
     if fees == 'Yes':
+        print("\nCalculate fee")
         start_amount = float(portfolio1[portf_pos])
+        print("\nstart_amount {}".format(start_amount))
         amt_coin2 = start_amount * float(list_exch_rates[0])
+        print("\namt_coin2 {}".format(amt_coin2))
         amt_coin2_no_fee = amt_coin2
+        print("\namt_coin2_no_fee {}".format(amt_coin2_no_fee))
         amt_coin2_fee = amt_coin2*fee
+        print("\namt_coin2_fee {}".format(amt_coin2_fee))
         amt_coin2_adj = amt_coin2*(1-fee)
+        print("\namt_coin2_adj {}".format(amt_coin2_adj))
         amt_coin3 = amt_coin2_adj / float(list_exch_rates[1])
+        print("\namt_coin3 {}".format(amt_coin3))
         amt_coin3_no_fee = amt_coin2_no_fee/float(list_exch_rates[1])
+        print("\namt_coin3_no_fee {}".format(amt_coin3_no_fee))
         amt_coin3_fee = amt_coin3 * fee
+        print("\namt_coin3_fee {}".format(amt_coin3_fee))
         amt_coin3_adj = amt_coin3*(1-fee)
+        print("\namt_coin3_adj {}".format(amt_coin3_adj))
         final_amount = amt_coin3_adj * float(list_exch_rates[2])
+        print("\nfinal_amount {}".format(final_amount))
         final_amount_no_fee = amt_coin3_no_fee * float(list_exch_rates[2])
+        print("\nfinal_amount_no_fee {}".format(final_amount_no_fee))
         final_amount_fee = final_amount *fee
+        print("\nfinal_amount_fee {}".format(final_amount_fee))
         final_amount_adj = final_amount *(1-fee)
+        print("\nfinal_amount_adj {}".format(final_amount_adj))
         tri_arb_paper_msg = "Starting Amount: "+str(sym_list[0][-3:])+" "+str(start_amount)+'\n'
         #Buy Currency 2 with Currency 1
         tri_arb_paper_msg += "\nAmount Coin 2: "+str(sym_list[0][0:3])+" "+str(amt_coin2)+'\n'
@@ -917,11 +961,17 @@ def tri_arb_paper(portfolio1, sym_list, list_exch_rates, fees='No', fee=0.0005):
         portfolio1[portf_pos] = final_amount_adj
         portfolio1[-1] = str(datetime.now())
     if fees == 'No':
+        print("\nCalculate no fee")
         start_amount = float(portfolio1[portf_pos])
+        print("\nstart_amount {}".format(start_amount))
         coin2_fee_amounts = coin3_fee_amounts = final_coin_fee_amounts =  [0, 0, 0, 0]  #Blank List for these values if Fees = 'No'
+        print("\ncoin2_fee_amounts {}".format(coin2_fee_amounts))
         amt_coin2 = start_amount * float(list_exch_rates[0])
+        print("\namt_coin2 {}".format(amt_coin2))
         amt_coin3 = amt_coin2 / float(list_exch_rates[1])
+        print("\namt_coin3 {}".format(amt_coin3))
         final_amount = amt_coin3 * float(list_exch_rates[2])
+        print("\nfinal_amount {}".format(final_amount))
         tri_arb_paper_msg = "Starting Amount: "+str(sym_list[0][-3:])+" "+str(start_amount)+'\n'
         #Buy Currency 2 with Currency 1
         tri_arb_paper_msg += "Amount Coin 2: "+str(sym_list[0][0:3])+" "+str(amt_coin2)+'\n'
@@ -929,7 +979,7 @@ def tri_arb_paper(portfolio1, sym_list, list_exch_rates, fees='No', fee=0.0005):
         tri_arb_paper_msg += "Amount Coin 3: "+str(sym_list[2][0:3])+" "+str(amt_coin3) +'\n'
         #Buy Currency 1 with Currency 3
         tri_arb_paper_msg += "Final Amount: "+str(sym_list[0][-3:])+" "+str(final_amount)+'\n'
-        pprint(tri_arb_paper_msg)
+        print(tri_arb_paper_msg)
         data_log_to_file(tri_arb_paper_msg)
         portfolio1[portf_pos] = final_amount
         portfolio1[-1] = str(datetime.now())
@@ -1098,5 +1148,41 @@ def market_depth(sym, num_entries=20):
     return ask_price, ask_quantity, bid_price, bid_quantity, place_order_ask_price, place_order_bid_price
     #Plot Data
 """
+
+def writeGoogleSheet(list=[""]):
+    # The ID and range of a sample spreadsheet.
+    SAMPLE_SPREADSHEET_ID = '1bxv1-7FbBJ67cDLCYhF58kW49-M8H-dlbK-RHinV6lY'
+    SCOPES = "https://www.googleapis.com/auth/spreadsheets"
+    store = file.Storage('token.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store)
+    service = build('sheets', 'v4', http=creds.authorize(Http()))
+
+    # Call the Sheets API
+    sheet = service.spreadsheets()
+    #list = [
+    #    ["Item", "Cost", "Stocked", "Ship Date"],
+    #    ["Wheel", "$20.50", "4", "3/1/2016"],
+    #    ["Door", "$15", "2", "3/15/2016"],
+    #    ["Engine", "$100", "1", "30/20/2016"],
+    #    ["Totals", "=SUM(B2:B4)", "=SUM(C2:C4)", "=MAX(D2:D4)"]
+    #]
+
+    resource = {
+        "majorDimension": "ROWS",
+        "values": [list]
+    }
+    rangSec = 'Sheet1!A2:M2'
+    sheet.values().append(
+        spreadsheetId=SAMPLE_SPREADSHEET_ID,
+        range=rangSec,
+        body=resource,
+        valueInputOption="USER_ENTERED"
+    ).execute()
+
+
 if __name__ == "__main__":
+    #writeGoogleSheet(['2018-12-18 17:09:04', 'ETHBTC', 'IOTAETH', 'IOTABTC', '0.026564', '1.66', '0.00268', '5.0', '7.12e-05', '153405.0', '0.026564', '0.026567164179104475', '0.011910112359537916'])
     run()
