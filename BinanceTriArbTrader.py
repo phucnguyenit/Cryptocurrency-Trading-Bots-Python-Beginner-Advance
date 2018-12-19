@@ -722,8 +722,8 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                             #exch_rate_list.append(depth['bids'][0][0]) #converted to Binance
                             depth = client.get_order_book(symbol=sym)
                             if i ==0:
-                                price1 = float(depth['bids'][0][0])
-                                volume1 = float(depth['bids'][0][1])
+                                price1 = float(depth['asks'][0][0])
+                                volume1 = float(depth['asks'][0][1])
                                 exch_rate_list.append(price1)
                             if i ==2:
                                 price3 = float(depth['bids'][0][0])
@@ -782,7 +782,7 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                         excel.append(str(rate1))  # BUY
                         excel.append(str(rate2))  # SELL
                         excel.append(str(arb_profit))
-                        writeGoogleSheet(excel, 'Sheet3!A2:M2')
+                        writeGoogleSheet(excel)
 
                     arb_profit_fees = fee_percentage
                     arb_profit_adjust = arb_profit - arb_profit_fees
