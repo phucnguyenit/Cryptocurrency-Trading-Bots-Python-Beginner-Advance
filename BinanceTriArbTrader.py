@@ -419,6 +419,12 @@ def initialize_arb():
         ############
         list_of_symbols287 = ['BTCUSDT', 'BCHSVBTC', 'BCHSVUSDT']
         list_of_symbols288 = ['BTCUSDT', 'BCHABCBTC', 'BCHABCUSDT']
+        ###########
+        list_of_symbols289 = ['BNBBTC', 'DCRBNB', 'DCRBTC']
+        list_of_symbols290 = ['BNBBTC', 'GOBNB', 'GOBTC']
+        list_of_symbols291 = ['BNBBTC', 'MITHBNB', 'MITHBTC']
+        list_of_symbols292 = ['BNBBTC', 'POLYBNB', 'POLYBTC']
+        list_of_symbols293 = ['BNBBTC', 'RENBNB', 'RENBTC']
 
         list_of_arb_sym = [list_of_symbols2, list_of_symbols3, list_of_symbols4, list_of_symbols5, list_of_symbols6
             , list_of_symbols7, list_of_symbols8, list_of_symbols9, list_of_symbols10, list_of_symbols12
@@ -508,7 +514,8 @@ def initialize_arb():
             , list_of_symbols277, list_of_symbols278, list_of_symbols279, list_of_symbols280, list_of_symbols281,
                            list_of_symbols282
             , list_of_symbols283, list_of_symbols284, list_of_symbols285, list_of_symbols286, list_of_symbols287,
-                           list_of_symbols288]
+                           list_of_symbols288
+            , list_of_symbols289, list_of_symbols290, list_of_symbols291, list_of_symbols292, list_of_symbols293]
 
         #Create List of all balance amounts for each coin:
         msg1 = "LOADING BALANCES FROM BINANCE"
@@ -606,13 +613,16 @@ def initialize_arb():
         print("\nFAILURE INITIALIZE\n")
         raise
 
+
 def data_log_to_file(message):
     with open('CryptoTriArbBot_DataLog.txt', 'a+') as f:
         f.write(message)
 
+
 def portf_file_save(portfolio, filename='Portfolio.txt'):
     with open(filename, 'a+') as f:
         f.write('\n'+str(portfolio))
+
 
 def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, place_order='No', real_order='No'):
     #Create Triangular Arbitrage Function
@@ -1149,7 +1159,8 @@ def market_depth(sym, num_entries=20):
     #Plot Data
 """
 
-def writeGoogleSheet(list=[""]):
+
+def writeGoogleSheet(list=[""], rangSec='Sheet1!A2:M2'):
     # The ID and range of a sample spreadsheet.
     SAMPLE_SPREADSHEET_ID = '1bxv1-7FbBJ67cDLCYhF58kW49-M8H-dlbK-RHinV6lY'
     SCOPES = "https://www.googleapis.com/auth/spreadsheets"
@@ -1174,7 +1185,7 @@ def writeGoogleSheet(list=[""]):
         "majorDimension": "ROWS",
         "values": [list]
     }
-    rangSec = 'Sheet1!A2:M2'
+
     sheet.values().append(
         spreadsheetId=SAMPLE_SPREADSHEET_ID,
         range=rangSec,
