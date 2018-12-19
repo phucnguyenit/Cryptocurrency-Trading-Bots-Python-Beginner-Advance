@@ -425,6 +425,12 @@ def initialize_arb():
         list_of_symbols291 = ['BNBBTC', 'MITHBNB', 'MITHBTC']
         list_of_symbols292 = ['BNBBTC', 'POLYBNB', 'POLYBTC']
         list_of_symbols293 = ['BNBBTC', 'RENBNB', 'RENBTC']
+        list_of_symbols294 = ['BNBUSDT', 'XRPBNB', 'XRPUSDT']
+        list_of_symbols295 = ['BNBUSDT', 'EOSBNB', 'EOSUSDT']
+        list_of_symbols296 = ['BNBUSDT', 'TRXBNB', 'TRXUSDT']
+        list_of_symbols297 = ['BNBUSDT', 'XLMBNB', 'XLMUSDT']
+        list_of_symbols298 = ['BNBUSDT', 'LTCBNB', 'LTCUSDT']
+        list_of_symbols299 = ['BNBUSDT', 'ONTBNB', 'ONTUSDT']
 
         list_of_arb_sym = [list_of_symbols2, list_of_symbols3, list_of_symbols4, list_of_symbols5, list_of_symbols6
             , list_of_symbols7, list_of_symbols8, list_of_symbols9, list_of_symbols10, list_of_symbols12
@@ -515,7 +521,9 @@ def initialize_arb():
                            list_of_symbols282
             , list_of_symbols283, list_of_symbols284, list_of_symbols285, list_of_symbols286, list_of_symbols287,
                            list_of_symbols288
-            , list_of_symbols289, list_of_symbols290, list_of_symbols291, list_of_symbols292, list_of_symbols293]
+            , list_of_symbols289, list_of_symbols290, list_of_symbols291, list_of_symbols292, list_of_symbols293,
+                           list_of_symbols294
+            , list_of_symbols295, list_of_symbols296, list_of_symbols297, list_of_symbols298, list_of_symbols299]
 
         #Create List of all balance amounts for each coin:
         msg1 = "LOADING BALANCES FROM BINANCE"
@@ -714,8 +722,8 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                             #exch_rate_list.append(depth['bids'][0][0]) #converted to Binance
                             depth = client.get_order_book(symbol=sym)
                             if i ==0:
-                                price1 = float(depth['asks'][0][0])
-                                volume1 = float(depth['asks'][0][1])
+                                price1 = float(depth['bids'][0][0])
+                                volume1 = float(depth['bids'][0][1])
                                 exch_rate_list.append(price1)
                             if i ==2:
                                 price3 = float(depth['bids'][0][0])
@@ -774,7 +782,7 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                         excel.append(str(rate1))  # BUY
                         excel.append(str(rate2))  # SELL
                         excel.append(str(arb_profit))
-                        writeGoogleSheet(excel)
+                        writeGoogleSheet(excel, 'Sheet3!A2:M2')
 
                     arb_profit_fees = fee_percentage
                     arb_profit_adjust = arb_profit - arb_profit_fees
