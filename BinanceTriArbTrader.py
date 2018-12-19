@@ -757,16 +757,16 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                 print(exch_rate_list)
                 data_log_to_file(str(exch_rate_list))
                 rate1 = exch_rate_list[0]
-                buy_price = "Buy: {}".format(rate1)
+                buy_price = "Sell: {}".format(rate1)
                 print(buy_price)
                 data_log_to_file(buy_price)
                 #price2= exch_rate_list[1]
                 #price3= exch_rate_list[2]
                 rate2 = price3/price2
-                sell_price = "Sell: {}".format(rate2)
+                sell_price = "Buy: {}".format(rate2)
                 print(sell_price)
                 data_log_to_file(sell_price)
-                if float(rate1)<float(rate2):
+                if float(rate1)>float(rate2):
                     arb_1_msg = "Arbitrage Possibility - "
                     #Calculate Profit, append to List
                     arb_profit = ((rate2-rate1)/rate2)*100
@@ -779,8 +779,8 @@ def arbitrage_bin(list_of_sym, tickers, portfolio, cycle_num=1, cycle_time=30, p
                         excel.append(str(volume2))
                         excel.append(str(price3))
                         excel.append(str(volume3))
-                        excel.append(str(rate1))  # BUY
-                        excel.append(str(rate2))  # SELL
+                        excel.append(str(rate2))  # BUY
+                        excel.append(str(rate1))  # SELL
                         excel.append(str(arb_profit))
                         writeGoogleSheet(excel, 'Sheet2!A2:M2')
 
